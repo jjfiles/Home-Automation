@@ -21,7 +21,7 @@ class Crab():
         self.headers = {"Authorization": "Bearer %s" % tk,}
         self.period = 0.25
         self.cycles = 4
-        self.delay = 0.08
+        self.delay = 0.15
         self.soundPath = "B:\Code\Automation\Lifx\sound.mp3"
         self._running = True
         
