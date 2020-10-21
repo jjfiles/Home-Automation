@@ -83,7 +83,7 @@ class Crab():
     def createRespsonse(self):
         while(self._running):
             response = requests.post(
-                'https://api.lifx.com/v1/lights/all/effects/pulse',
+                'https://api.lifx.com/v1/lights/location:Office/effects/pulse',
                 data=self.setData(),
                 headers=self.headers
             )
