@@ -3,6 +3,7 @@ import random
 import requests
 from threading import Thread
 from secrets import TOKEN as tk
+from secrets import PATH as pth
 from playsound import playsound
 
 class Crab():
@@ -22,7 +23,7 @@ class Crab():
         self.period = 0.25
         self.cycles = 4
         self.delay = 0.15
-        self.soundPath = "B:\Code\Automation\Lifx\sound.mp3"
+        self.soundPath = pth
         self._running = True
         
     """
