@@ -5,24 +5,14 @@ from threading import Thread
 from secrets import TOKEN as tk
 from playsound import playsound
 
-class Crab():
+class Cheeky():
     def __init__(self):
-        self.colors = [
-            "white",
-            "red",
-            "orange",
-            "yellow",
-            "cyan",
-            "green",
-            "blue",
-            "purple",
-            "pink"
-        ]
+        self.color = "red"
         self.headers = {"Authorization": "Bearer %s" % tk,}
-        self.period = 0.25
-        self.cycles = 4
-        self.delay = 0.08
-        self.soundPath = "B:\Code\Automation\Lifx\sound.mp3"
+        self.period = 2
+        self.cycles = 10
+        self.delay = self.period * self.cycles
+        self.soundPath = "B:\\Code\\Automation\\Lifx\\ussr.mp3"
         self._running = True
         
     """
@@ -30,13 +20,10 @@ class Crab():
     """
     
     def getColors(self):
-        return colors
+        return color
     
     def setColors(self, x):
-        self.colors == x
-    
-    def appendColors(self, x):
-        self.colors.append(x)
+        self.color == x
         
     def getPeriod(self):
         return self.period
@@ -62,15 +49,10 @@ class Crab():
     def setSoundPath(self, x):
         self.soundPath = x
         
-
-    # Choose a random color from the to send to a data packet
-    def randColor(self):
-        return random.choice(self.colors)
-
     # Prep the data packet with the desired payload
     def setData(self):
         data = {
-            "color": self.randColor(),
+            "color": self.color,
             "period": self.period,
             "cycles": self.cycles,
             "persist": "false",
@@ -100,10 +82,10 @@ class Crab():
     
     
 if __name__ == "__main__":
-    c = Crab()
+    c = Cheeky()
     t1 = Thread(target=c.createRespsonse).start()
     t2 = Thread(target=c.play).start()
-    time.sleep(15)
+    time.sleep(30)
     c.terminate()
     try:
         t1.join()
