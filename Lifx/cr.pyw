@@ -2,9 +2,8 @@ import time
 import random
 import requests
 from threading import Thread
-from secrets import TOKEN as tk
-from secrets import PATH as pth
 from playsound import playsound
+from settings import *
 
 class Crab():
     def __init__(self):
@@ -19,11 +18,11 @@ class Crab():
             "purple",
             "pink"
         ]
-        self.headers = {"Authorization": "Bearer %s" % tk,}
+        self.headers = {"Authorization": "Bearer %s" % TOKEN,}
         self.period = 0.25
         self.cycles = 4
         self.delay = 0.15
-        self.soundPath = pth
+        self.soundPath = os.path.join(PATH, "sound.pm3")
         self._running = True
         
     """

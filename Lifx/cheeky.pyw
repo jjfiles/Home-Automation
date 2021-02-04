@@ -2,17 +2,17 @@ import time
 import random
 import requests
 from threading import Thread
-from secrets import TOKEN as tk
+from settings import *
 from playsound import playsound
 
 class Cheeky():
     def __init__(self):
         self.color = "red"
-        self.headers = {"Authorization": "Bearer %s" % tk,}
+        self.headers = {"Authorization": "Bearer %s" % TOKEN,}
         self.period = 2
         self.cycles = 10
         self.delay = self.period * self.cycles
-        self.soundPath = "B:\\Code\\Automation\\Lifx\\ussr.mp3"
+        self.soundPath = 
         self._running = True
         
     """
